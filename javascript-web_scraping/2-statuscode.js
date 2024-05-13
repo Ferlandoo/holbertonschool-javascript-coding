@@ -1,9 +1,18 @@
-#!/usr/bin/node
+#!/usr/local/bin/node
 
 const https = require('https');
+const http = require('http');
 const address = process.argv[2];
 
-https.get(address, (result) => {
-  console.log(`code: ${result.statusCode}`);
-  process.exit();
-});
+if (address.startsWith('https')) {
+  https.get(address, (response) => {
+    console.log(`code: ${response.statusCode}`);
+    process.exit();
+  });
+}
+else {
+  http.get(address, (response) => {
+    console.log(`code: ${response.statusCode}`);
+    process.exit();
+  });
+}
