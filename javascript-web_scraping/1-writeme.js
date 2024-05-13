@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 
 const fs = require('fs');
 const textArg = process.argv[3];
