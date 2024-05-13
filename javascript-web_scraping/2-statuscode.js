@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 
 const https = require('https');
 const http = require('http');
@@ -9,8 +9,7 @@ if (address.startsWith('https')) {
     console.log(`code: ${response.statusCode}`);
     process.exit();
   });
-}
-else {
+} else {
   http.get(address, (response) => {
     console.log(`code: ${response.statusCode}`);
     process.exit();
