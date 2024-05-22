@@ -1,6 +1,6 @@
 /* eslint-env node */
 function displayMessage(argText) {
-  process.stdout.write(argText + '\n');
-};
+  console.log(argText);
+}
 
 module.exports = displayMessage;
