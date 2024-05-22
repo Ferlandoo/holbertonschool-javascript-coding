@@ -1,4 +1,3 @@
-/* eslint-env node */
 function displayMessage(argText) {
   console.log(argText);
 }
