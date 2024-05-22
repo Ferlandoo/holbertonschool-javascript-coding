@@ -1,3 +1,4 @@
+/* eslint-env node */
 function displayMessage(argText) {
   process.stdout.write(argText + '\n');
 };
