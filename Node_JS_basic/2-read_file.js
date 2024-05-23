@@ -6,7 +6,7 @@ function countStudents(argPath) {
     }
     const lines = data.split('\n');
     lines.splice(0, 1);
-    console.log(`Number of students: ${lines.length - 1}`);
+    console.log(`Number of students: ${lines.length}`);
     const splited = lines.map((word) => word.split(','));
     const subjects = {};
     for (let i = 0; i < splited.length; i++) {
