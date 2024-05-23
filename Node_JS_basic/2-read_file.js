@@ -1,5 +1,6 @@
+const fs = require('fs');
+
 function countStudents(argPath) {
-  const fs = require('fs');
   fs.readFile(argPath, 'utf8', (error, data) => {
     if (error) {
       throw new Error('Cannot load the database');
@@ -9,7 +10,7 @@ function countStudents(argPath) {
     console.log(`Number of students: ${lines.length}`);
     const splited = lines.map((word) => word.split(','));
     const subjects = {};
-    for (let i = 0; i < splited.length; i++) {
+    for (let i = 0; i < splited.length; i += 1) {
       if (!subjects[splited[i][3]]) {
         subjects[splited[i][3]] = [];
       }

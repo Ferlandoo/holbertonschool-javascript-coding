@@ -1,6 +1,6 @@
-const countStudents = require('./3-read_file_async');
 const http = require('http');
 const url = require('url');
+const countStudents = require('./3-read_file_async');
 
 const app = http.createServer((require, result) => {
   const path = url.parse(require.url).pathname;
