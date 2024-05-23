@@ -16,8 +16,11 @@ function countStudents(argPath) {
         }
         subjects[splited[i][3]].push(splited[i][0]);
       }
-      console.log(`Number of students in ${Object.keys(subjects)[0]}: ${subjects.CS.length}. List: ${subjects.CS.join(', ')}`);
-      console.log(`Number of students in ${Object.keys(subjects)[1]}: ${subjects.SWE.length}. List: ${subjects.SWE.join(', ')}`);
+      for (const key in subjects) {
+        if (Object.prototype.hasOwnProperty.call(subjects, key)) {
+          console.log(`Number of students in ${key}: ${subjects[key].length}. List: ${subjects[key].join(', ')}`);
+        }
+      }
       resolve();
     });
   });
