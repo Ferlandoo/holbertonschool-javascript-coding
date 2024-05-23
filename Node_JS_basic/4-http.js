@@ -1,6 +1,6 @@
 const http = require('http');
 
-const app = http.createServer(function (require, result) {
+const app = http.createServer((require, result) => {
   result.write('Hello Holberton School!');
   result.end();
 });
