@@ -4,24 +4,23 @@ function countStudents(argPath) {
     fs.readFile(argPath, 'utf8', (error, data) => {
       if (error) {
         reject(new Error('Cannot load the database'));
+        return;
       }
-      const lines = data.split('\n');
+      const lines = data.split('\n').filter(line => line.trim() !== '');
       lines.splice(0, 1);
-      console.log(`Number of students: ${lines.length}`);
-      const splited = lines.map((word) => word.split(','));
-      const subjects = {};
-      for (let i = 0; i < splited.length; i++) {
-        if (!subjects[splited[i][3]]) {
-          subjects[splited[i][3]] = [];
+      const students = lines.map(line => {
+        const [firstname, lastname, age, field] = line.split(',');
+        return { firstname, lastname, age, field };
+      });
+
+      const subjects = students.reduce((acc, student) => {
+        if (!acc[student.field]) {
+          acc[student.field] = [];
         }
-        subjects[splited[i][3]].push(splited[i][0]);
-      }
-      for (const key in subjects) {
-        if (Object.prototype.hasOwnProperty.call(subjects, key)) {
-          console.log(`Number of students in ${key}: ${subjects[key].length}. List: ${subjects[key].join(', ')}`);
-        }
-      }
-      resolve();
+        acc[student.field].push(student.firstname);
+        return acc;
+      }, {});
+      resolve({ students, subjects });
     });
   });
 }
