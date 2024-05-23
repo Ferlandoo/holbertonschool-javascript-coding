@@ -15,8 +15,8 @@ function countStudents(argPath) {
       }
       subjects[splited[i][3]].push(splited[i][0]);
     }
-    console.log(`Number of students in CS: ${subjects.CS.length}. List: ${subjects.CS.join(', ')}`);
-    console.log(`Number of students in SWE: ${subjects.SWE.length}. List: ${subjects.SWE.join(', ')}`);
+    console.log(`Number of students in ${Object.keys(subjects)[0]}: ${subjects.CS.length}. List: ${subjects.CS.join(', ')}`);
+    console.log(`Number of students in ${Object.keys(subjects)[1]}: ${subjects.SWE.length}. List: ${subjects.SWE.join(', ')}`);
   })
 }
 
